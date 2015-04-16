@@ -40,7 +40,7 @@ def forward_scan(start,stop,pause,step):
         command = "SOUR:VOLT:AMPL {}".format(v)
         keith.write(command)
         time.sleep(pause)
-        print(keith.query("READ?"))
+        data.append(keith.query("READ?"))
         v += step
 
 def reverse_scan(start,stop,pause,step):
@@ -49,7 +49,7 @@ def reverse_scan(start,stop,pause,step):
         command = "SOUR:VOLT:AMPL {}".format(v)
         keith.write(command)
         time.sleep(pause)
-        print(keith.query("READ?"))
+        data.append(keith.query("READ?"))
         v += step
 
 read(-1,1,1,1,2)
